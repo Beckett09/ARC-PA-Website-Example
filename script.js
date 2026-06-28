@@ -20,7 +20,7 @@ const navMenu = document.getElementById('nav-menu');
 
 hamburger.addEventListener('click', () => {
     navMenu.classList.toggle('show');
-    // Change icon between bars and X
+    // Change icon between bars & X
     const icon = hamburger.querySelector('i');
     if (navMenu.classList.contains('show')) {
         icon.classList.remove('fa-bars');
