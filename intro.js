@@ -1,7 +1,7 @@
 const contactForm = document.getElementById('accreditio-contact');
 const formStatus = document.getElementById('form-status');
 
-contactForm.addEventListener('submit', async (event) => {
+contactForm?.addEventListener('submit', async (event) => {
     event.preventDefault();
 
     const submitButton = contactForm.querySelector('button[type="submit"]');

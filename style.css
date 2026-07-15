@@ -11,6 +11,7 @@ body { line-height: 1.6; color: #333; background-color: #f9f9f9; scroll-behavior
 /* Header & Navigation */
 header { background-color: #ffffff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 100; }
 .header-container { display: flex; justify-content: space-between; align-items: center; padding: 15px 20px; }
+.logo { color: inherit; text-decoration: none; }
 .logo-placeholder { background-color: #003366; color: white; padding: 10px 20px; font-weight: bold; border-radius: 4px; font-size: 1.2rem; }
 
 /* Desktop Navigation */
