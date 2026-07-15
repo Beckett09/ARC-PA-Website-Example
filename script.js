@@ -1,17 +1,10 @@
 // Return link shared by every PA program example page
 const introReturnLink = document.createElement('a');
 introReturnLink.className = 'intro-return-link';
-introReturnLink.href = 'intro.html';
+introReturnLink.href = 'index.html';
 introReturnLink.setAttribute('aria-label', 'Return to the Accreditio introduction page');
 introReturnLink.innerHTML = '<span aria-hidden="true">←</span> Back to Accreditio';
 document.body.appendChild(introReturnLink);
-
-// Keep the sample site's home and section links away from the root intro route
-//document.querySelectorAll('a[href="index.html"], a[href^="index.html#"]').forEach((link) => {
-//    const section = link.getAttribute('href').split('#')[1];
- //   link.href = section ? `/index.html#${section}` : '/index.html';
-//});
-
 
 // 1. Tab Switching Logic
 function openTab(evt, tabName) {
