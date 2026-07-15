@@ -33,25 +33,25 @@ function openTab(evt, tabName) {
 const hamburger = document.getElementById('hamburger');
 const navMenu = document.getElementById('nav-menu');
 
-hamburger.addEventListener('click', () => {
-    navMenu.classList.toggle('show');
-    // Change icon between bars & X
-    const icon = hamburger.querySelector('i');
-    if (navMenu.classList.contains('show')) {
-        icon.classList.remove('fa-bars');
-        icon.classList.add('fa-times');
-    } else {
-        icon.classList.remove('fa-times');
-        icon.classList.add('fa-bars');
-    }
-});
+if (hamburger && navMenu) {
+    hamburger.addEventListener('click', () => {
+        navMenu.classList.toggle('show');
+        const icon = hamburger.querySelector('i');
+        if (icon) {
+            icon.classList.toggle('fa-bars', !navMenu.classList.contains('show'));
+            icon.classList.toggle('fa-times', navMenu.classList.contains('show'));
+        }
+    });
+}
 
 // Mobile Dropdown Click Logic (Since hover doesn't work well on touch)
 const dropdowns = document.querySelectorAll('.dropdown');
 dropdowns.forEach(dropdown => {
-    dropdown.addEventListener('click', function(e) {
+    const trigger = dropdown.querySelector('.dropbtn');
+    trigger?.addEventListener('click', function(e) {
         if (window.innerWidth <= 900) {
-            this.classList.toggle('active');
+            e.preventDefault();
+            dropdown.classList.toggle('active');
         }
     });
 });
@@ -83,22 +83,24 @@ accordions.forEach(acc => {
 });
 
 // 4. Contact Form Submission
-document.getElementById('inquiryForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const btn = this.querySelector('button[type="submit"]');
-    const originalText = btn.innerText;
-    
-    // Simulate sending state
-    btn.innerText = "Sending...";
-    btn.style.backgroundColor = "#ccc";
-    
-    setTimeout(() => {
-        alert('Thank you for reaching out! Your inquiry has been routed to our admissions team.');
-        this.reset();
-        btn.innerText = originalText;
-        btn.style.backgroundColor = ""; // Reset to default CSS color
-    }, 1000);
-});
+const inquiryForm = document.getElementById('inquiryForm');
+if (inquiryForm) {
+    inquiryForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const btn = this.querySelector('button[type="submit"]');
+        const originalText = btn.innerText;
+        
+        btn.innerText = "Sending...";
+        btn.style.backgroundColor = "#ccc";
+        
+        setTimeout(() => {
+            alert('Thank you for reaching out! Your inquiry has been routed to our admissions team.');
+            this.reset();
+            btn.innerText = originalText;
+            btn.style.backgroundColor = "";
+        }, 1000);
+    });
+}
 
 // Automatically open a tab if a hash is present in the URL on page load
 window.addEventListener('DOMContentLoaded', () => {
@@ -119,7 +121,7 @@ window.addEventListener('DOMContentLoaded', () => {
             targetButton.click();
             
             // Optional: Smoothly scroll down to the tab container so the user sees it immediately
-            document.querySelector('.tab-container').scrollIntoView({ behavior: 'smooth' });
+            document.querySelector('.tab-container')?.scrollIntoView({ behavior: 'smooth' });
         }
     }
 });
