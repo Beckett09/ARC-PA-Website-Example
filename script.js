@@ -9,7 +9,7 @@ document.body.appendChild(introReturnLink);
 // Keep the sample site's home and section links away from the root intro route
 document.querySelectorAll('a[href="index.html"], a[href^="index.html#"]').forEach((link) => {
     const section = link.getAttribute('href').split('#')[1];
-    link.href = section ? `example-site#${section}` : 'example-site';
+    link.href = section ? `/index.html#${section}` : '/index.html';
 });
 
 // 1. Tab Switching Logic
