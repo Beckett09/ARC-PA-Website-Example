@@ -106,12 +106,11 @@
                     </div>
                 </div>
 
-                <form class="contact-form" id="accreditio-contact" name="accreditio-contact" method="POST" action="/intro.html" data-netlify="true" netlify-honeypot="bot-field">
-                    <input type="hidden" name="form-name" value="accreditio-contact">
-                    <input type="hidden" name="subject" value="New Accreditio website inquiry">
-                    <p class="honeypot">
-                        <label>Leave this field empty: <input name="bot-field"></label>
-                    </p>
+               <form id="accreditio-contact" name="contact" method="POST" action="/" data-netlify="true" netlify-honeypot="bot-field">
+                <input type="hidden" name="form-name" value="contact">
+                <p class="hidden-field" style="position:absolute; left:-9999px;">
+                    <label>Don't fill this out: <input name="bot-field"></label>
+                </p>
 
                     <div class="field-row">
                         <label>
@@ -136,8 +135,9 @@
 
                     <div class="form-footer">
                         <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
-                        <button class="button button-primary" type="submit">Send inquiry <span aria-hidden="true">→</span></button>
-                    </div>
+                       <button type="submit">Send Message</button>
+                        </form>
+                    <div id="form-status" class="form-status"></div>
                 </form>
             </section>
         </main>
